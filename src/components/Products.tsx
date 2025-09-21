@@ -2,6 +2,11 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ShoppingBag, Package, Store, Coffee } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import dCutBags from '@/assets/d-cut-bags.jpg';
+import loopHandleBags from '@/assets/loop-handle-bags.jpg';
+import boxBags from '@/assets/box-bags.jpg';
+import drawstringBags from '@/assets/drawstring-bags.jpg';
 
 const Products = () => {
   const productCategories = [
@@ -10,7 +15,8 @@ const Products = () => {
       title: "D-Cut Shopping Bags",
       description: "Perfect for retail stores and supermarkets. Available in various sizes and colors.",
       features: ["Reinforced handles", "Custom printing", "100-200 GSM"],
-      price: "From ₹25",
+      image: dCutBags,
+      slug: "d-cut-shopping-bags",
       popular: true,
     },
     {
@@ -18,7 +24,8 @@ const Products = () => {
       title: "Loop Handle Bags",
       description: "Elegant bags ideal for boutiques and premium stores. Soft handles for comfort.",
       features: ["Soft fabric handles", "Premium finish", "80-120 GSM"],
-      price: "From ₹35",
+      image: loopHandleBags,
+      slug: "loop-handle-bags",
       popular: false,
     },
     {
@@ -26,7 +33,8 @@ const Products = () => {
       title: "Box Type Bags",
       description: "Structured bags perfect for gift shops and promotional events.",
       features: ["Box-shaped design", "Laminated finish", "90-150 GSM"],
-      price: "From ₹40",
+      image: boxBags,
+      slug: "box-type-bags",
       popular: false,
     },
     {
@@ -34,7 +42,8 @@ const Products = () => {
       title: "Drawstring Bags",
       description: "Versatile bags for bakeries and food outlets. Easy to close and carry.",
       features: ["Drawstring closure", "Food safe", "100-130 GSM"],
-      price: "From ₹30",
+      image: drawstringBags,
+      slug: "drawstring-bags",
       popular: false,
     },
   ];
@@ -80,16 +89,22 @@ const Products = () => {
                     Most Popular
                   </Badge>
                 )}
-                <CardHeader className="text-center">
-                  <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-eco">
-                    <IconComponent className="h-6 w-6 text-primary-foreground" />
+                <CardHeader className="text-center p-0">
+                  <div className="aspect-[4/3] rounded-t-lg overflow-hidden">
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  <CardTitle className="text-lg">{product.title}</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-sm text-muted-foreground text-center">
-                    {product.description}
-                  </p>
+                <CardContent className="space-y-4 p-6">
+                  <div className="text-center">
+                    <CardTitle className="text-lg mb-2">{product.title}</CardTitle>
+                    <p className="text-sm text-muted-foreground">
+                      {product.description}
+                    </p>
+                  </div>
                   <ul className="space-y-1">
                     {product.features.map((feature, idx) => (
                       <li key={idx} className="text-xs text-muted-foreground flex items-center">
@@ -98,11 +113,13 @@ const Products = () => {
                       </li>
                     ))}
                   </ul>
-                  <div className="pt-4 border-t border-border">
-                    <div className="text-lg font-semibold text-primary mb-3">
-                      {product.price}
-                    </div>
-                    <Button className="w-full" variant="outline">
+                  <div className="pt-4 border-t border-border space-y-2">
+                    <Link to={`/products/${product.slug}`}>
+                      <Button className="w-full" variant="outline">
+                        View Details
+                      </Button>
+                    </Link>
+                    <Button className="w-full">
                       Get Quote
                     </Button>
                   </div>

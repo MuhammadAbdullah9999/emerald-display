@@ -1,6 +1,9 @@
 import { Button } from '@/components/ui/button';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { ArrowRight, Leaf, Recycle, Award } from 'lucide-react';
-import heroImage from '@/assets/hero-bags.jpg';
+import carousel1 from '@/assets/carousel-1.jpg';
+import carousel2 from '@/assets/carousel-2.jpg';
+import carousel3 from '@/assets/carousel-3.jpg';
 
 const Hero = () => {
   return (
@@ -69,15 +72,41 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Image */}
+          {/* Carousel */}
           <div className="relative">
-            <div className="aspect-square rounded-2xl overflow-hidden shadow-eco">
-              <img
-                src={heroImage}
-                alt="Eco-friendly non-woven bags collection"
-                className="w-full h-full object-cover"
-              />
-            </div>
+            <Carousel className="w-full max-w-lg mx-auto">
+              <CarouselContent>
+                <CarouselItem>
+                  <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-eco">
+                    <img
+                      src={carousel1}
+                      alt="Eco-friendly non-woven bags collection"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </CarouselItem>
+                <CarouselItem>
+                  <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-eco">
+                    <img
+                      src={carousel2}
+                      alt="Manufacturing process of eco-friendly bags"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </CarouselItem>
+                <CarouselItem>
+                  <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-eco">
+                    <img
+                      src={carousel3}
+                      alt="Customers using sustainable packaging solutions"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </CarouselItem>
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
             {/* Floating elements */}
             <div className="absolute -top-4 -right-4 bg-accent rounded-full p-4 shadow-soft">
               <Leaf className="h-8 w-8 text-accent-foreground" />
