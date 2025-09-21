@@ -11,21 +11,10 @@ import { useEffect } from "react";
 const queryClient = new QueryClient();
 
 const ScrollToTop = () => {
-  const { pathname, hash } = useLocation();
+  const { pathname } = useLocation();
   useEffect(() => {
-    if (hash) {
-      const id = hash.replace('#', '');
-      // Delay to ensure the target exists after route changes
-      setTimeout(() => {
-        const el = document.getElementById(id);
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }, 0);
-    } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  }, [pathname, hash]);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [pathname]);
   return null;
 };
 
