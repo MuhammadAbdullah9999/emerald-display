@@ -41,7 +41,7 @@ const About = () => {
         {/* Header */}
         <div className="text-center space-y-4 mb-16">
           <Badge variant="outline" className="text-primary border-primary">
-            About Bags Club
+            About Bags Hub
           </Badge>
           <h2 className="text-3xl font-bold text-foreground lg:text-4xl">
             Leading the Way in Sustainable Packaging
@@ -92,7 +92,7 @@ const About = () => {
             <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-eco">
               <img
                 src={manufacturingImage}
-                alt="Bags Club manufacturing facility"
+                alt="Bags Hub manufacturing facility"
                 className="w-full h-full object-cover"
               />
             </div>

@@ -34,9 +34,9 @@ const Footer = () => {
             <div className="space-y-6">
               <div className="flex items-center space-x-2">
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-sage-green">
-                  <span className="text-sm font-bold text-forest-green">BC</span>
+                  <span className="text-sm font-bold text-forest-green">BH</span>
                 </div>
-                <span className="text-xl font-bold">Bags Club</span>
+                <span className="text-xl font-bold">Bags Hub</span>
               </div>
               <p className="text-primary-foreground/80 text-sm">
                 Your trusted partner for eco-friendly non-woven bags. Promoting sustainable living 
@@ -125,7 +125,7 @@ const Footer = () => {
         {/* Bottom Footer */}
         <div className="py-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="text-sm text-primary-foreground/80">
-            © 2024 Bags Club. All rights reserved. Designed for a sustainable future.
+            © 2024 Bags Hub. All rights reserved. Designed for a sustainable future.
           </div>
           
           {/* Social Links */}
