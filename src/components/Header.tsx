@@ -2,15 +2,16 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, Phone, Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navigation = [
-    { name: 'Home', href: '#home' },
-    { name: 'Products', href: '#products' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/#home' },
+    { name: 'Products', href: '/#products' },
+    { name: 'About Us', href: '/#about' },
+    { name: 'Contact', href: '/#contact' },
   ];
 
   return (
@@ -27,13 +28,13 @@ const Header = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           {navigation.map((item) => (
-            <a
+            <Link
               key={item.name}
-              href={item.href}
+              to={item.href}
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
               {item.name}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -41,18 +42,13 @@ const Header = () => {
         <div className="hidden lg:flex items-center space-x-4 text-sm text-muted-foreground">
           <div className="flex items-center space-x-1">
             <Phone className="h-4 w-4" />
-            <span>+92 321 4075755</span>
+            <span>+923219797021</span>
           </div>
           <div className="flex items-center space-x-1">
             <Mail className="h-4 w-4" />
             <span>info@bagshub.com</span>
           </div>
         </div>
-
-        {/* CTA Button */}
-        <Button variant="default" className="hidden md:inline-flex">
-          Get Quote
-        </Button>
 
         {/* Mobile Menu */}
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -64,29 +60,26 @@ const Header = () => {
           <SheetContent side="right" className="w-[300px] sm:w-[400px]">
             <div className="flex flex-col space-y-4 mt-6">
               {navigation.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.href}
                   className="text-lg font-medium text-foreground hover:text-primary transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
               <div className="pt-4 border-t border-border">
                 <div className="flex flex-col space-y-2 text-sm text-muted-foreground">
                   <div className="flex items-center space-x-2">
                     <Phone className="h-4 w-4" />
-                    <span>+92 321 4075755</span>
+                    <span>+923219797021</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Mail className="h-4 w-4" />
                     <span>info@bagshub.com</span>
                   </div>
                 </div>
-                <Button className="w-full mt-4">
-                  Get Quote
-                </Button>
               </div>
             </div>
           </SheetContent>
