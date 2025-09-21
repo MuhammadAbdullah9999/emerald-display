@@ -134,7 +134,7 @@ const Hero = () => {
                             Shop Now
                             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                           </Button>
-                          <Button size="lg" variant="outline" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10">
+                          <Button size="lg" variant="outline" className="border-primary-foreground/20 hover:bg-primary-foreground/10">
                             Custom Quote
                           </Button>
                         </div>
