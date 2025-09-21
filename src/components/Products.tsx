@@ -2,13 +2,14 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ShoppingBag, Package, Store, Coffee } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import dCutBags from '@/assets/d-cut-bags.jpg';
 import loopHandleBags from '@/assets/loop-handle-bags.jpg';
 import boxBags from '@/assets/box-bags.jpg';
 import drawstringBags from '@/assets/drawstring-bags.jpg';
 
 const Products = () => {
+  const navigate = useNavigate();
   const productCategories = [
     {
       icon: ShoppingBag,
@@ -94,7 +95,7 @@ const Products = () => {
                     <img
                       src={product.image}
                       alt={product.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
                 </CardHeader>
@@ -114,11 +115,9 @@ const Products = () => {
                     ))}
                   </ul>
                   <div className="pt-4 border-t border-border space-y-2">
-                    <Link to={`/products/${product.slug}`}>
-                      <Button className="w-full" variant="outline">
-                        View Details
-                      </Button>
-                    </Link>
+                    <Button className="w-full" variant="outline" onClick={() => { navigate(`/products/${product.slug}`); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
+                      View Details
+                    </Button>
                     <Button className="w-full">
                       Get Quote
                     </Button>
